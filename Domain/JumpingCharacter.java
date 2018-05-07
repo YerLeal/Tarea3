@@ -7,6 +7,9 @@ import javafx.scene.image.Image;
 
 public class JumpingCharacter extends Character {
 
+    private int jump = 200;
+    private int fall = 370;
+
     public JumpingCharacter(int x, int y) throws FileNotFoundException {
         super(x, y);
         setSprite();
@@ -19,33 +22,31 @@ public class JumpingCharacter extends Character {
         }
 
     }
-    private int salto = 200;
-    private int caida = 370;
 
     @Override
     public void run() {
         ArrayList<Image> sprite = super.getSprite();
-        
+
         while (true) {
             try {
                 Thread.sleep(3);
-                if(caida == 370){
+                if (fall == 370) {
                     super.setImage(sprite.get(2));
-                    salto=370;
-                    caida=200;
+                    jump = 370;
+                    fall = 200;
                     this.sleep(200);
                 }
-                if (salto > 200) {  
+                if (jump > 200) {
                     super.setImage(sprite.get(0));
-                    salto--;
-                    this.setY(salto);
-                }else{
+                    jump--;
+                    this.setY(jump);
+                } else {
                     this.sleep(2);
                     super.setImage(sprite.get(1));
-                    this.setY(caida);
-                    caida++;
+                    this.setY(fall);
+                    fall++;
                 }
-                
+
             } catch (InterruptedException ex) {
             }
         }

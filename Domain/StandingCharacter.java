@@ -19,7 +19,6 @@ public class StandingCharacter extends Character {
         for (int i = 0; i < 4; i++) {
             sprite.add(new Image(new FileInputStream("src/Assets/Standing" + i + ".png")));     
         }
-//        super.setSprite(sprite);
     }
 
     @Override

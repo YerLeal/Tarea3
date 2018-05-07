@@ -1,6 +1,5 @@
 package Interface;
 
-import Domain.FlyingCharacter;
 import Domain.JumpingCharacter;
 import Domain.RunningCharacter;
 import Domain.StandingCharacter;
@@ -30,8 +29,7 @@ public class Window extends Application implements Runnable{
     private StandingCharacter sc;
     private RunningCharacter rc;
     private JumpingCharacter jc;
-    private FlyingCharacter fc;
-    
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Graphics and Threads");
@@ -82,9 +80,6 @@ public class Window extends Application implements Runnable{
             this.jc = new JumpingCharacter(450, 370);
             this.jc.start();
             
-            this.fc = new FlyingCharacter(0, 130);
-            this.fc.start();
-            
             this.thread = new Thread(this);
             this.thread.start();
         } 
@@ -97,7 +92,6 @@ public class Window extends Application implements Runnable{
         gc.drawImage(this.sc.getImage(), this.sc.getX(), this.sc.getY());
         gc.drawImage(this.rc.getImage(), this.rc.getX(), this.rc.getY());
         gc.drawImage(this.jc.getImage(), this.jc.getX(), this.jc.getY());
-        gc.drawImage(this.fc.getImage(), this.fc.getX(), this.fc.getY(),55,55);
     }
     
     EventHandler<WindowEvent> exit = new EventHandler<WindowEvent>() {
